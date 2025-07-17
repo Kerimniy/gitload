@@ -225,18 +225,17 @@
 						const blob = xhr.response;
 						const link = document.createElement('a');
 						link.href = URL.createObjectURL(blob);
-						link.download = 'KHA331.py';
+						let name = js_url.split("/")[js_url.split("/").length-1];
+						if (!name.includes(".")){
+							ext =blob.type.split("/")[blob.type.split("/").length-1];
+							name = "undefined."+ext;
+						}
+						link.download = name;
 						link.click();
 						URL.revokeObjectURL(link.href);
 						}
 					};
 				}
-				
-
-				
-
-				
-			}
 
 			function ifContainSymbol(array1,string1){
 				let res=false;
